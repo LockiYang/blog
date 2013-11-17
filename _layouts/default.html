@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="{{ site.author }}" />
+
+    <title>{{ page.title }} | {{ site.author }}</title>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="{{ site.url }}/feed/" rel="alternate" title="{{ site.author }}" type="application/atom+xml" />
+    <link rel="stylesheet" href="/style/css/style.css">
+    <script type="text/javascript" src="/style/js/jquery-1.7.1.min.js"></script>
+    
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="/style/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body onload="prettyPrint();">
+      <a id="goTopBtn" href="javascript:void(0);" onclick="goTop();" title="返回顶部">Top</a>
+      <header>
+        <div class="container">
+          <h1 id="brand"><a href="http://jomin.me">{{ site.author }}</a></h1>  
+          <nav id="nav" role="navigation">
+                <a href="{{ site.url }}/">首页</a>
+                <a href="{{ site.url }}/about">关于</a>
+                <a href="{{ site.url }}/guestbook">留言</a>
+                <a href="{{ site.url }}/feed">RSS</a>
+          </nav> 
+        </div>
+      </header>
+
+      <div id="main" role="main">
+        <div class="container">
+          <div id="article">
+            <div class="header">
+              <h1>{{ page.title }}</h1> <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date:"%Y-%m-%d" }}</time>
+            </div>  
+            <article class="content">
+              {{ content }}
+            </article>          
+          </div>
+          <div id="sidebar">
+            <div class="search">
+              <form id="google_search_form" method="get" action="http://www.google.com/search">
+                <input type="text" name="q"  id="google_search" />
+                <input type="hidden" name="ie" value="utf8" />
+                <input type="hidden" name="oe" value="utf8" />
+                <input type="hidden" name="hl" value="zh-CN" />
+                <input type="hidden" name="sitesearch" value="jomin.me" />
+                <a id="google_search_submit" href="javascript:void(0);">Go</a>   
+              </form>  
+            </div>     
+            <div class="categories">
+              <h4 class="side-title"><a href="{{ site.url }}/categories">分类</a></h4><hr/>
+              <ul>
+                {% for cat in site.categories %}
+                  <li><a href="{{ site.url }}/categories#{{ cat[0] }}" title="{{ cat[0] }}" rel="{{ cat[1].size }}">{{ cat[0] }} ({{ cat[1].size }})</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="link">
+              <h4 class="side-title"><a href="{{ site.url }}/links">链接</a></h4><hr/>
+              <ul>
+                
+              </ul>
+            </div>
+            <div class="tags">
+              <h4 class="side-title"><a href="{{ site.url }}/tags">标签</a></h4><hr/>
+              <div id='tag_cloud'> 
+              {% for tag in site.tags %}
+                <a href="{{ site.url }}/tags#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
+              {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+      <footer id="footer">
+        <hr class="end" />
+        <p class="copyright">
+        <span>
+          Copyright {{site.time | date:"%Y"}} by <a href="http://jomin.me">Jomin.me</a>,
+        </span>
+        <span>
+            Powered by <a href="http://jekyllrb.com/">Jekyll</a> on <a href="https://github.com/">Github</a>,
+        </span>
+        <span>
+            Themed by <a href="http://jomin.me">Jomin.me</a>,
+        </span>
+            Updated at <span>{{site.time | date:"%Y-%m-%d %H:%M:%S"}}</span>.
+        </p>
+      </footer>
+
+      
+      <script type="text/javascript" src="/style/js/gotop.js"></script>
+      <script type="text/javascript" src="/style/js/prettify.js"></script>
+      <script src="/style/js/jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script> 
+      <script type="text/javascript">
+        $.fn.tagcloud.defaults = {
+            size: {start: 1, end: 1, unit: 'em'},
+            color: {start: '#f8e0e6', end: '#ff3333'}
+        };
+        $(function () {
+            $('#tag_cloud a').tagcloud();
+        });
+        /* highlight */
+        $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto');
+
+        $('#google_search_submit').click(function(){
+          $('#google_search_form').submit();
+        })
+      </script>
+  </body>
+</html>

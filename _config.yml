@@ -1,0 +1,6 @@
+﻿permalink: /:year/:month/:title/
+url: http://jomin.me/blog
+author: Jomin.me
+markdown: rdiscount
+pygments: true
+
