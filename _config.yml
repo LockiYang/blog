@@ -2,7 +2,7 @@
 url: http://jomin.me/blog
 author: Jomin.me
 markdown: rdiscount
-pygments: true
+#pygments: true
+highlighter: pygments
 
-
-theme: jekyll-theme-cayman
+# theme: jekyll-theme-cayman
