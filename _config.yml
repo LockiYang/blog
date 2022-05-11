@@ -1,5 +1,5 @@
 ﻿permalink: /:year/:month/:title/
-url: http://jomin.me/blog
+url: https://lockiyang.github.io/blog
 author: Jomin.me
 markdown: rdiscount
 #pygments: true
