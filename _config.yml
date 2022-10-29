@@ -1,7 +1,7 @@
 ﻿permalink: /:year/:month/:title/
 url: https://lockiyang.github.io/blog
 author: Jomin.me
-markdown: rdiscount
+markdown: kramdown
 #pygments: true
 highlighter: pygments
 
